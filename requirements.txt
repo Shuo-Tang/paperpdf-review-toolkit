@@ -1,0 +1,4 @@
+pymupdf>=1.24.0
+markitdown>=0.1.0
+openai>=1.0.0
+anthropic>=0.30.0

@@ -1,0 +1,27 @@
+# PDFs and generated output
+*.pdf
+*.docx
+*_annotations.txt
+*_review.md
+output/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+venv/
+.venv/
+
+# Environment and secrets
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

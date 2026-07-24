@@ -32,10 +32,30 @@ pip install -r requirements.txt
 
 ### Dependencies
 
+Install everything at once:
+
+```bash
+pip install -r requirements.txt
+```
+
+Or install packages individually as needed:
+
+```bash
+# Core: PDF annotation extraction (always required)
+pip install "pymupdf>=1.24.0"
+
+# Markdown conversion (required for the -m / --markdown flag)
+pip install "markitdown>=0.1.0"
+
+# LLM review generation — install the one matching your provider
+pip install "openai>=1.0.0"        # for DeepSeek or OpenAI / ChatGPT
+pip install "anthropic>=0.30.0"    # for Anthropic Claude
+```
+
 | Package | Purpose |
 |---|---|
 | `pymupdf` | Reading PDFs and accessing Adobe Acrobat annotations |
-| `markitdown` | Converting PDFs to markdown |
+| `markitdown` | Converting PDFs to markdown (Microsoft's MarkItDown) |
 | `openai` | Calling DeepSeek and OpenAI APIs for review generation |
 | `anthropic` | Calling Anthropic Claude API for review generation |
 
@@ -64,7 +84,13 @@ python extract_pdf_annotations.py paper.pdf -m --verbose
 - `{paper_name}_annotations.txt` — extracted highlights and comments
 - `{paper_name}.md` — markdown version of the PDF (if `-m` is used)
 
-### Step 2: Generate a Review (Optional — Requires LLM API Key)
+At this point, you have two paths to turn these files into a polished review:
+
+**If you don't have an API key:** Take the two output files and paste their contents into any free browser-based LLM (ChatGPT, DeepSeek Chat, Claude.ai, etc.) with a prompt like *"Transform these reviewer annotations into a polished, well-organized academic review."* You'll get a professional review without any setup beyond Step 1.
+
+**If you have an API key** from DeepSeek, OpenAI, or Anthropic, you can automate this step:
+
+### Step 2: Generate a Review (with API Key)
 
 ```bash
 # Set your API key
@@ -93,10 +119,6 @@ python generate_review.py paper.md paper_annotations.txt -o my_review.md
 | DeepSeek | `deepseek` (default) | `DEEPSEEK_API_KEY` | `deepseek-chat` |
 | OpenAI / ChatGPT | `openai` | `OPENAI_API_KEY` | `gpt-4o` |
 | Anthropic Claude | `claude` | `ANTHROPIC_API_KEY` | `claude-sonnet-4-5-20250901` |
-
-### No API Key?
-
-If you don't have an LLM API key, the tool still works — just skip Step 2. You'll get the markdown paper and extracted annotations, which you can use for manual review or paste into any LLM chat interface.
 
 ## Review Output Format
 

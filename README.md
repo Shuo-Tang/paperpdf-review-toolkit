@@ -116,7 +116,7 @@ python generate_review.py paper.md paper_annotations.txt -o my_review.md
 
 | Provider | `-p` flag | Environment Variable | Model Used |
 |---|---|---|---|
-| DeepSeek | `deepseek` (default) | `DEEPSEEK_API_KEY` | `deepseek-chat` |
+| DeepSeek | `deepseek` (default) | `DEEPSEEK_API_KEY` | `deepseek-v4-pro` |
 | OpenAI / ChatGPT | `openai` | `OPENAI_API_KEY` | `gpt-4o` |
 | Anthropic Claude | `claude` | `ANTHROPIC_API_KEY` | `claude-sonnet-4-5-20250901` |
 

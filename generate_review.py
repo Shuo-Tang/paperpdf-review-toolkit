@@ -31,7 +31,7 @@ from typing import Optional
 PROVIDERS = {
     "deepseek": {
         "env_var": "DEEPSEEK_API_KEY",
-        "model": "deepseek-chat",
+        "model": "deepseek-v4-pro",
         "base_url": "https://api.deepseek.com/v1",
         "package": "openai",
     },
